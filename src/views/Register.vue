@@ -181,6 +181,8 @@ export default {
                     this.$router.push('/Login');
                 }, 500);
             }
+
+            //Hello I am changing this project nothing else..
             // let user = {
             //     username: this.username,
             //     email: this.email,
