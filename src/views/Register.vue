@@ -1,6 +1,10 @@
 <template>
 <div class="row m-0 ">
-    <leftSide />
+    <leftSide 
+        msg="Simplify your NDA today. Sign up to enjoy the perks!"
+        member="Already a member?"
+        btn="Sign in"
+    />
     
     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 d-sm-block sign">
         <!--    globalNda for mobile screen-->
@@ -20,7 +24,7 @@
                 <!--      Input Fields-->
                 <div class="padding">
                     <div class="signup-form farm">
-                        <form @submit.prevent="registerUser">
+                        <form @submit.prevent="registerUser" :v-model="details">
                             <!-- User Name input field -->
                             <div class="form-group">
                                 <div class="input-group input">
@@ -82,6 +86,9 @@
                             </div>
                             <!-- show hide -->
                             
+                            <div>
+                                <captcha/>
+                            </div>
                             
                             <div>
                                 <button type="submit" class="Register w-100">Register</button>
@@ -108,6 +115,8 @@
 <script>
 import leftSide from '../components/leftSide.vue'
 import darkMode from '../components/darkMode'
+import captcha from '../components/captcha.vue'
+
 import {
     required,
     minLength,
@@ -130,7 +139,8 @@ export default {
                 name: "",
                 email: "",
                 password: "",
-                users: []
+                users: [],
+                robot: false,
             },
             passwordHidden: {
                     default: false,
@@ -142,7 +152,8 @@ export default {
     components: {
         darkMode,
         leftSide,
-    },
+        captcha
+        },
 
     validations: {
         details: {
@@ -168,6 +179,15 @@ export default {
             },
             showPassword() {
                 this.passwordHidden = false;},
+                registerUser: function(){
+                    if (this.details.robot){
+                        
+                    }
+                },
+                onVerify: function (response){
+                    if (response) this.details.robot = true;
+                }
+                ,
         registerUser() {
             console.log("submitffff!");
             this.$v.$touch();

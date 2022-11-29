@@ -39,6 +39,7 @@
      background: none;
 }
 .read-btn{
+    margin-top: 3%;
     border: 1px solid white!important;
     width: 120px!important;
 }
@@ -186,10 +187,6 @@ margin-bottom: 4px!important;
     }
 }
 
-.signup-form label {
-    font-weight: normal;
-    font-size: 13px;
-}
 .signup-form .form-control {
     min-height: 38px;
     box-shadow: none !important;
@@ -277,4 +274,14 @@ margin-bottom: 4px!important;
     text-decoration: none!important;
     font-weight: 600;
     color: #00000b;
+}
+
+/* left side prop style */
+.memb{
+    text-decoration: none!important;;
+    color: white;
+}
+.memb:hover{
+    text-decoration: none!important;;
+    color: white;
 }

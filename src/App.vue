@@ -19,6 +19,7 @@
 
     <main role="main">
       <router-view></router-view>
+      <vue-recaptcha sitekey=""></vue-recaptcha>
     </main>
   </div>
 </template>

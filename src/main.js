@@ -3,8 +3,8 @@ import App from './App.vue'
 import './assets/css/style.css'
 import '../public/assets/Css/bootstrap.min.css'
 import router from './router'
-
 import Vuelidate from 'vuelidate'
+
 Vue.use(Vuelidate)
 
 Vue.config.productionTip = false

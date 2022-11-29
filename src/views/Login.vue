@@ -1,6 +1,9 @@
 <template>
 <div class="row m-0">
-    <leftSide/>
+    <leftSide msg="Simplify your NDA. Get exclusive access." 
+                member1="Not a member yet?" 
+                btn="Register" 
+                />
     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 d-sm-block sign">
         <!--    globalNda for mobile screen-->
         <div class="container-fluid container-md container-sm px-sm-3">
@@ -42,18 +45,17 @@
                             <div class="form-group">
                                 <div class="input-group input">
                                     <i class="fa fa1 fa-lock " aria-hidden="true"></i>
-                                   
-                                        <input type="text" v-if="!passwordHidden" class="form-control border-0 input-text " id="password" name="password" placeholder="Password"  autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
+
+                                    <input type="text" v-if="!passwordHidden" class="form-control border-0 input-text " id="password" name="password" placeholder="Password" autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
                                         'is-invalid': $v.details.password.$error,
                                         'is-valid': !$v.details.password.$invalid,
                                         }" /><i class="fa bi bi-eye-slash " v-if="!passwordHidden" @click="hidePassword" aria-hidden="true"></i>
-                                        
-                                 
-                                        <input type="password" v-if="passwordHidden" class="form-control input-text border-0 " id="password" name="password" placeholder="Password"  autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
+
+                                    <input type="password" v-if="passwordHidden" class="form-control input-text border-0 " id="password" name="password" placeholder="Password" autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
                                         'is-invalid': $v.details.password.$error,
                                         'is-valid': !$v.details.password.$invalid,
-                                        }" /><i class="fa bi bi-eye " v-if="passwordHidden"  @click="showPassword" aria-hidden="true"></i>
-                                    
+                                        }" /><i class="fa bi bi-eye " v-if="passwordHidden" @click="showPassword" aria-hidden="true"></i>
+
                                     <!-- <div class="valid-feedback">Your full name is valid</div> -->
                                     <div class="invalid-feedback req pt-md-1">
                                         <span v-if="!$v.details.password.required">Password is required</span>
@@ -107,11 +109,11 @@ import {
 export default {
     name: "Login",
     props: {
-            password: {
-                default: "",
-                type: String
-            }
-        },
+        password: {
+            default: "",
+            type: String
+        }
+    },
     data() {
         return {
             details: {
@@ -119,9 +121,9 @@ export default {
                 password: "",
             },
             passwordHidden: {
-                    default: false,
-                    type: Boolean
-                },
+                default: false,
+                type: Boolean
+            },
             submitStatus: null,
         };
     },
@@ -143,12 +145,13 @@ export default {
         },
     },
     methods: {
-        
+
         hidePassword() {
-                this.passwordHidden = true;
-            },
-            showPassword() {
-                this.passwordHidden = false;},
+            this.passwordHidden = true;
+        },
+        showPassword() {
+            this.passwordHidden = false;
+        },
         registerUser() {
             console.log("submitffff!");
             this.$v.$touch();
@@ -165,6 +168,5 @@ export default {
     }
 }
 </script>
-
 
 //Hello I am changing this project nothing else..
