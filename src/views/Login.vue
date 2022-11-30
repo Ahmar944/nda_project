@@ -1,9 +1,11 @@
 <template>
 <div class="row m-0">
-    <leftSide msg="Simplify your NDA. Get exclusive access." 
-                member1="Not a member yet?" 
-                btn="Register" 
-                />
+    <leftSide
+    msg="Simplify your NDA today. Get exclusive access."
+        member="Not a member yet?"
+        btn="Register"
+    /> 
+
     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 d-sm-block sign">
         <!--    globalNda for mobile screen-->
         <div class="container-fluid container-md container-sm px-sm-3">

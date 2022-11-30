@@ -1,11 +1,6 @@
 <template>
 <div class="row m-0 ">
-    <leftSide 
-        msg="Simplify your NDA today. Sign up to enjoy the perks!"
-        member="Already a member?"
-        btn="Sign in"
-    />
-    
+    <leftSide msg="Simplify your NDA today. Sign up to enjoy the perks!" member="Already a member?" btn="Sign in" />
     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 d-sm-block sign">
         <!--    globalNda for mobile screen-->
         <div class="container-fluid container-md container-sm px-sm-3">
@@ -29,7 +24,7 @@
                             <div class="form-group">
                                 <div class="input-group input">
                                     <i class="px-1 fa fa1 bi bi-person-fill"></i>
-                                    <input type="text" class="form-control border-0 input-text" id="name" name="username" placeholder="Full Name"  autocomplete="off" v-model.trim="$v.details.name.$model" :class="{
+                                    <input type="text" class="form-control border-0 input-text" id="name" name="username" placeholder="Full Name" autocomplete="off" v-model.trim="$v.details.name.$model" :class="{
                                     'is-invalid': $v.details.name.$error,
                                     'is-valid': !$v.details.name.$invalid,
                                     }" />
@@ -62,18 +57,17 @@
                             <div class="form-group">
                                 <div class="input-group input">
                                     <i class="fa fa1 fa-lock " aria-hidden="true"></i>
-                                   
-                                        <input type="text" v-if="!passwordHidden" class="form-control border-0 input-text " id="password" name="password" placeholder="Password"  autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
+
+                                    <input type="text" v-if="!passwordHidden" class="form-control border-0 input-text " id="password" name="password" placeholder="Password" autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
                                         'is-invalid': $v.details.password.$error,
                                         'is-valid': !$v.details.password.$invalid,
                                         }" /><i class="fa bi bi-eye-slash " v-if="!passwordHidden" @click="hidePassword" aria-hidden="true"></i>
-                                        
-                                 
-                                        <input type="password" v-if="passwordHidden" class="form-control input-text border-0 " id="password" name="password" placeholder="Password"  autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
+
+                                    <input type="password" v-if="passwordHidden" class="form-control input-text border-0 " id="password" name="password" placeholder="Password" autocomplete="off" v-model.trim="$v.details.password.$model" :class="{
                                         'is-invalid': $v.details.password.$error,
                                         'is-valid': !$v.details.password.$invalid,
-                                        }" /><i class="fa bi bi-eye " v-if="passwordHidden"  @click="showPassword" aria-hidden="true"></i>
-                                    
+                                        }" /><i class="fa bi bi-eye " v-if="passwordHidden" @click="showPassword" aria-hidden="true"></i>
+
                                     <!-- <div class="valid-feedback">Your full name is valid</div> -->
                                     <div class="invalid-feedback req pt-md-1">
                                         <span v-if="!$v.details.password.required">Password is required</span>
@@ -85,14 +79,11 @@
                                 </div>
                             </div>
                             <!-- show hide -->
-                            
-                            <div>
-                                <captcha/>
-                            </div>
-                            
+
                             <div>
                                 <button type="submit" class="Register w-100">Register</button>
-                                <p class="link text-center">Already Have an Account?<router-link to="/Login" class=" links"> Login Here</router-link>
+                                <recaptcha />
+                                <p class="link1 text-center d-xl-none d-lg-none d-md-none d-sm-block visible">Already Have an Account?<router-link to="/Login" class=" links"> Login Here</router-link>
                                 </p>
                             </div>
                         </form>
@@ -115,7 +106,7 @@
 <script>
 import leftSide from '../components/leftSide.vue'
 import darkMode from '../components/darkMode'
-import captcha from '../components/captcha.vue'
+import recaptcha from '../components/recaptcha.vue'
 
 import {
     required,
@@ -127,11 +118,14 @@ import {
 export default {
     name: "Register",
     props: {
-            password: {
-                default: "",
-                type: String
-            }
-        },
+        msg: String,
+        member: String,
+        btn: String,
+        password: {
+            default: "",
+            type: String
+        }
+    },
 
     data() {
         return {
@@ -141,19 +135,20 @@ export default {
                 password: "",
                 users: [],
                 robot: false,
+
             },
             passwordHidden: {
-                    default: false,
-                    type: Boolean
-                },
+                default: false,
+                type: Boolean
+            },
             submitStatus: null,
         };
     },
     components: {
         darkMode,
         leftSide,
-        captcha
-        },
+        recaptcha,
+    },
 
     validations: {
         details: {
@@ -175,19 +170,19 @@ export default {
     },
     methods: {
         hidePassword() {
-                this.passwordHidden = true;
-            },
-            showPassword() {
-                this.passwordHidden = false;},
-                registerUser: function(){
-                    if (this.details.robot){
-                        
-                    }
-                },
-                onVerify: function (response){
-                    if (response) this.details.robot = true;
-                }
-                ,
+            this.passwordHidden = true;
+        },
+        showPassword() {
+            this.passwordHidden = false;
+        },
+        registerUser: function () {
+            if (this.details.robot) {
+
+            }
+        },
+        onVerify: function (response) {
+            if (response) this.details.robot = true;
+        },
         registerUser() {
             console.log("submitffff!");
             this.$v.$touch();
