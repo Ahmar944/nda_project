@@ -24,10 +24,10 @@
 
               <div class="form-group">
                 <div class="input-group">
-                  <input type="email" class="form-control border-1 text-center verify-input" name="email" placeholder="1" required="required"  autocomplete="off">
-                  <input type="email" class="form-control border-1 mx-5 text-center" name="email" placeholder="1" required="required"  autocomplete="off" >
-                  <input type="email" class="form-control border-1 mr-5 text-center" name="email" placeholder="1" required="required"  autocomplete="off">
-                  <input type="email" class="form-control border-1 ms-5 text-center" name="email" placeholder="1" required="required"  autocomplete="off">
+                  <input type="email" class="form-control border-1 text-center verify-input" name="email" placeholder="1" required="required"  autocomplete="off" maxlength="1">
+                  <input type="email" class="form-control border-1 mx-5 text-center" name="email" placeholder="1" required="required"  autocomplete="off" maxlength="1">
+                  <input type="email" class="form-control border-1 mr-5 text-center" name="email" placeholder="1" required="required"  autocomplete="off" maxlength="1">
+                  <input type="email" class="form-control border-1 ms-5 text-center" name="email" placeholder="1" required="required"  autocomplete="off" maxlength="1">
                 </div>
               </div>
 
