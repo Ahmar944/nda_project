@@ -1,6 +1,8 @@
 <template>
 <div class="row m-0">
-    <leftSide/>
+    <leftSide
+    msg="Lorem Ipsum is simply dummy text of the printing"
+        btn="Read more"/>
 
 
     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 d-sm-block sign">
